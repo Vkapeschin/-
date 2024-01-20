@@ -11,9 +11,9 @@ class Distance
         Distance() : feet(0), inches(0), MTF(3.280833F) {}
         explicit Distance(float meters) : MTF(3.280833F)
         {
-            int fullfeet = meters * MTF;
+            float fullfeet = meters * MTF;
             feet = int(fullfeet);
-            inches = fullfeet - feet;
+            inches = (fullfeet - feet)*12;
         }
         void show_dist()
         {cout << "Distanse in feet: " << feet << "'" << inches << endl;}
@@ -22,15 +22,22 @@ class Distance
 int main()
 {
     void fancy(Distance);
+    int metrs;
     char ch;
     while(ch != 'n')
         { 
-        int metrs;
         cout << "Input meters: "; cin >> metrs;
         Distance d1(metrs);
-
-        cout << "Press 'n' for break!";
+        fancy(d1);
+        d1.show_dist();
+        cout << "Press 'n' for break! Or other button to continue.";
+        cin >> ch;
         }
     
     return 0;
+}
+void fancy(Distance dnc)
+{
+    cout << "Outpt in feet and inches: " << endl;
+    dnc.show_dist();
 }
