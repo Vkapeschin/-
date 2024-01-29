@@ -28,7 +28,7 @@ int main()
     int p1 = c1.get_count();
     std::cout << p1;
     
-    CountDn c2(35);
+    CountDn c2;
     ++c2;
     --c2;
     int p2 = c2.get_count();
